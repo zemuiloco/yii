@@ -12,9 +12,16 @@ $this->title = $model->name;
 ?>
 <div class="country-view">
 
-   <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
+   <h1><?= Html::encode($this->title) ?></h1>    
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'code',
+            'name',
+            'population',
+        ],
+    ]) ?>
+     <p>
        
         <?= Html::a('Delete', ['delete', 'id' => $model->code], [
             'class' => 'btn btn-danger',
@@ -26,14 +33,5 @@ $this->title = $model->name;
       
       ?>
     </p>
-    
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'code',
-            'name',
-            'population',
-        ],
-    ]) ?>
 
 </div>
