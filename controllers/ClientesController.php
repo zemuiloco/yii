@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Country;
-use app\models\CountrySearch;
+use app\models\Clientes;
+use app\models\ClientesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CountryController implements the CRUD actions for Country model.
+ * ClientesController implements the CRUD actions for Clientes model.
  */
-class CountryController extends Controller
+class ClientesController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class CountryController extends Controller
     }
 
     /**
-     * Lists all Country models.
+     * Lists all Clientes models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CountrySearch();
+        $searchModel = new ClientesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,8 +45,8 @@ class CountryController extends Controller
     }
 
     /**
-     * Displays a single Country model.
-     * @param string $id
+     * Displays a single Clientes model.
+     * @param integer $id
      * @return mixed
      */
     public function actionView($id)
@@ -57,16 +57,16 @@ class CountryController extends Controller
     }
 
     /**
-     * Creates a new Country model.
+     * Creates a new Clientes model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Country();
+        $model = new Clientes();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect("../web/index.php?r=country%2Findex");
+            return $this->redirect("../web/index.php?r=clientes%2Findex");
         } else {
             return $this->renderAjax('create', [
                 'model' => $model,
@@ -75,9 +75,9 @@ class CountryController extends Controller
     }
 
     /**
-     * Updates an existing Country model.
+     * Updates an existing Clientes model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      */
     public function actionUpdate($id)
@@ -85,7 +85,7 @@ class CountryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect("../web/index.php?r=country%2Findex");
+            return $this->redirect("../web/index.php?r=clientes%2Findex");
         } else {
             return $this->renderAjax('update', [
                 'model' => $model,
@@ -94,9 +94,9 @@ class CountryController extends Controller
     }
 
     /**
-     * Deletes an existing Country model.
+     * Deletes an existing Clientes model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
@@ -107,15 +107,15 @@ class CountryController extends Controller
     }
 
     /**
-     * Finds the Country model based on its primary key value.
+     * Finds the Clientes model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return Country the loaded model
+     * @param integer $id
+     * @return Clientes the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Country::findOne($id)) !== null) {
+        if (($model = Clientes::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
