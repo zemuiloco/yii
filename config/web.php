@@ -4,6 +4,13 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+
+    // set target language to be Russian
+    'language' => 'pt-BR',
+    
+    // set source language to be English
+    'sourceLanguage' => 'en-US',
+
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
